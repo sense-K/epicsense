@@ -337,11 +337,11 @@ export default function RtaBoard({ heroes: heroesFromServer = [], popularData: i
 
   function getMySlotPickNum(i: number) {
     const t = pickOrder.map((m, j) => ({ m, j })).filter((x) => x.m);
-    return t[i]?.j + 1 ?? i * 2 + 1;
+    return (t[i]?.j ?? (i * 2)) + 1;
   }
   function getOppSlotPickNum(i: number) {
     const t = pickOrder.map((m, j) => ({ m, j })).filter((x) => !x.m);
-    return t[i]?.j + 1 ?? i * 2 + 2;
+    return (t[i]?.j ?? (i * 2 + 1)) + 1;
   }
 
   const turnLabel = isDone ? "드래프트 완료"
